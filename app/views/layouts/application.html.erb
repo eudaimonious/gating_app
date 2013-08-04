@@ -26,9 +26,10 @@
        <%= link_to 'Gating App', organizations_path, :class => "brand" %>
        <div class="nav-collapse collapse" id="main-menu">
         <ul class="nav" id="main-menu-left">
-          <li><a onclick="pageTracker._link(this.href); return false;" href="http://news.bootswatch.com/">Users</a></li>
-          <li><a id="swatch-link" href="http://bootswatch.com/#gallery">Capabilities</a></li>
-          <li><%= link_to 'Organizations', organizations_path, :id => "swatch-link" %></li>
+			<li><a href="#">Capabilities</a></li>
+          	<li><%= link_to 'Organizations', organizations_path %></li>
+            <li><%= link_to 'Users', users_path %></li>
+          
         </ul>
         <ul class="nav pull-right" id="main-menu-right">
             <% if user_signed_in? %>
