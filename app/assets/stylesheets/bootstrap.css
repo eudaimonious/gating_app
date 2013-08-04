@@ -6886,12 +6886,16 @@ div.subnav.subnav-fixed .nav > li:first-child > a:hover {
 }
 
 label,
-input,
 button,
 select,
 textarea,
 legend {
   color: #c8c8c8;
+}
+
+
+input {
+  color: #3a3f44;
 }
 
 legend,

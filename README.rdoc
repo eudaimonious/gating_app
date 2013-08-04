@@ -6,12 +6,12 @@ link:gating.herokuapp.com.
 
 == User Management
 
-* All Users have:
+* (COMPLETE) All Users have:
   * (COMPLETE) An Email
-  * An API Key
+  * (COMPLETE) An API Key
 * (COMPLETE) There is basic user registration and authentication
-* A user can either be a regular User or Admin
-* Admins are able to assign / unassign roles to other users
+* (COMPLETE) A user can either be a regular User or Admin
+* (PARTIALLY COMPLETE - Everyone can assign/unassign roles) Admins are able to assign / unassign roles to other users
 * All users view their personal API key
 
 == Capability Management

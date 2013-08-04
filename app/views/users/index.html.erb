@@ -1,0 +1,24 @@
+
+    <div class="container">
+<!-- Typography
+================================================== -->
+<section id="typography">
+  <div class="page-header">
+    <h1>Users</h1>
+  </div>
+
+  <!-- Headings & Paragraph Copy -->
+  <div class="row">
+
+    <div class="span12">
+      <div class="well">
+        <% @users.each do |user| %>
+          <h1><%= link_to user.email, edit_user_path(user)  %></h1>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
