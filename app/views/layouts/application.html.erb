@@ -8,6 +8,39 @@
 </head>
 <body>
 
+	  <!-- Navbar
+    ================================================== -->
+ <div class="navbar navbar-fixed-top">
+   <div class="navbar-inner">
+     <div class="container">
+       <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+         <span class="icon-bar"></span>
+       </a>
+       <a class="brand" href="http://bootswatch.com/">Gating App</a>
+       <div class="nav-collapse collapse" id="main-menu">
+        <ul class="nav" id="main-menu-left">
+          <li><a onclick="pageTracker._link(this.href); return false;" href="http://news.bootswatch.com/">Users</a></li>
+          <li><a id="swatch-link" href="http://bootswatch.com/#gallery">Capabilities</a></li>
+          <li><%= link_to 'Organizations', organizations_path, :id => "swatch-link" %></li>
+        </ul>
+        <ul class="nav pull-right" id="main-menu-right">
+          <li>
+            <% if user_signed_in? %>
+                <%= link_to "Sign Out", destroy_user_session_path %>
+            <% else %>
+                <%= link_to "Register", new_user_registration_path %>
+                <%= link_to "Sign In", new_user_session_path %>
+            <% end %>
+          </li>
+        </ul>
+       </div>
+     </div>
+   </div>
+ </div>
+
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 <div>
