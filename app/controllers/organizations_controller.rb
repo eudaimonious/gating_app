@@ -7,5 +7,5 @@ class OrganizationsController < ApplicationController
 			format.json { render :json => @organizations }
 		end
 	end
-	
+
 end

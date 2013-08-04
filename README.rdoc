@@ -1,7 +1,6 @@
 == Objective
 
-The Gating API is an isolated service that enables any of our applications to check what capabilities should be enabled or disabled for a given application. This allows us to activate capabilities for clients individually, do limited rollouts of new capabilities, and charge clients for selected capabilities. You can visit the app at
-link:gating.herokuapp.com.
+The Gating API is an isolated service that enables any of our applications to check what capabilities should be enabled or disabled for a given application. This allows us to activate capabilities for clients individually, do limited rollouts of new capabilities, and charge clients for selected capabilities. You can visit the app at link:gating.herokuapp.com.
 
 
 == User Management
@@ -11,7 +10,7 @@ link:gating.herokuapp.com.
   * (COMPLETE) An API Key
 * (COMPLETE) There is basic user registration and authentication
 * (COMPLETE) A user can either be a regular User or Admin
-* (PARTIALLY COMPLETE - Everyone can assign/unassign roles) Admins are able to assign / unassign roles to other users
+* (COMPLETE) Admins are able to assign / unassign roles to other users
 * All users view their personal API key
 
 == Capability Management

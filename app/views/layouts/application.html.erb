@@ -1,7 +1,12 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
   <title>GatingApp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   	<style>
        	body {
         	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -26,9 +31,13 @@
        <%= link_to 'Gating App', organizations_path, :class => "brand" %>
        <div class="nav-collapse collapse" id="main-menu">
         <ul class="nav" id="main-menu-left">
+        	<% if current_user %>
 			<li><a href="#">Capabilities</a></li>
+			<% end %>
+			<% if current_user && current_user.admin %>
           	<li><%= link_to 'Organizations', organizations_path %></li>
             <li><%= link_to 'Users', users_path %></li>
+            <% end %>
           
         </ul>
         <ul class="nav pull-right" id="main-menu-right">
@@ -45,12 +54,52 @@
    </div>
  </div>
 
-<div>
-	<p><%= notice %></p>
-	<p><%= alert %></p>
-</div>
+<!-- Alerts & Messages
+================================================== -->
+ <div class="container">
+
+<% if alert %>
+  <div class="row">
+    <div class="span12">
+      <div class="alert alert-error">
+        <a class="close">×</a>
+        <%= alert %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<% if notice %>
+  <div class="row"
+    <div class="span12">
+      <div class="alert alert-success">
+        <a class="close">×</a>
+        <%= notice %>
+      </div>
+    </div>
+  </div>
+<% end %>
 
 <%= yield %>
 
+<br><br><br><br>
+
+     <!-- Footer
+      ================================================== -->
+      <hr>
+
+      <footer id="footer">
+        <p class="pull-right"><a href="#top">Back to top</a></p>
+        <div class="links">
+          <a href="https://eudaimonious.blogspot.com">Blog</a>
+          <a href="https://twitter.com/eudaimonious">Twitter</a>
+          <a href="https://github.com/eudaimonious/gating_app/">GitHub</a>
+        </div>
+        Made by <a href="http://http://about.me/margaretscott">Margaret Scott</a>. Contact her <a href="mailto:eudaimonious@gmail.com">eudaimonious@gmail.com</a>.<br>
+      </footer>
+
+
+
+  </div>
 </body>
 </html>
