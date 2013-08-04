@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
     private
 
   	def require_admin_user!
-    	unless current_user.admin
+    	unless current_user && current_user.admin
       		render :json => "unauthorized user", :status => :unauthorized
     	end
 	end
