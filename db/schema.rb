@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130804021336) do
+ActiveRecord::Schema.define(:version => 20130805015458) do
 
   create_table "organizations", :force => true do |t|
     t.string   "full_name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20130804021336) do
     t.datetime "updated_at",                             :null => false
     t.string   "authentication_token"
     t.boolean  "admin"
+    t.integer  "organization_id"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

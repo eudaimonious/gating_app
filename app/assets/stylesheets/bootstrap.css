@@ -6887,13 +6887,13 @@ div.subnav.subnav-fixed .nav > li:first-child > a:hover {
 
 label,
 button,
-select,
+
 textarea,
 legend {
   color: #c8c8c8;
 }
 
-
+select,
 input {
   color: #3a3f44;
 }

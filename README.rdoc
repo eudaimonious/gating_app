@@ -32,10 +32,10 @@ The Gating API is an isolated service that enables any of our applications to ch
 
 == Organization Management
 
-* All Organizations have:
-  * A full name (i.e. “Amherst College”)
-  * A slug (i.e. “amherst”)
-* Users are a part of an Organization; Admins are not a part of any Organization
+* (COMPLETE) All Organizations have:
+  * (COMPLETE) A full name (i.e. “Amherst College”)
+  * (COMPLETE) A slug (i.e. “amherst”)
+* (PARTIAL - Need organization to reset when a user is promoted to Admin. Try adding org to the promotion form. You could change the value via the template. Also check whether adding to the form make the helper method in the controller work. Is it possible to do this in the models? What's best practice?) Users are a part of an Organization; Admins are not a part of any Organization
 * Admins are able to create new Organizations
 * An Organization can have zero or more Capabilities assigned to it
 * An Admin can assign Capabilities to an Organization
@@ -49,8 +49,8 @@ The Gating API will be called by applications in order to determine which capabi
 This endpoint returns the entire list of Capabilities, any that are assigned to the Organization should have the set value, all others should have the default value.
 
 Request
-GET /organizations/:id/capabilities
-GET /organizations/amherst/capabilities
+        GET /organizations/:id/capabilities
+        GET /organizations/amherst/capabilities
 
 Response
         [
@@ -68,20 +68,20 @@ Response
 This endpoint returns a single Capability for the Organization, if it is assigned to the Organization then set the value otherwise return the default. If the key does not correspond to any Capabilities, then return a 404.
 
 Request
-GET /organizations/:id/capabilities/:key
-GET /organizations/amherst/capabilities/advanced_search
+        GET /organizations/:id/capabilities/:key
+        GET /organizations/amherst/capabilities/advanced_search
 
 Response
         { “key”: “value”}
 
         { “advanced_search”: true}
 
-*Get a List of Capabilities for an Organization
+* Get a List of Capabilities for an Organization
 This endpoint returns a list of Capabilities for the Organization, any that are assigned to the Organization should have the set value, all others should have the default value. If a key does not exist, return its value as null.
 
 Request
-GET /organizations/:id/capabilities?keys[]=x&keys[]=y&keys[]=z
-GET/organizations/amherst/capabilities?keys[]=advanced_search&keys[]=advanced_search_url&keys[]=does­not­exist
+        GET /organizations/:id/capabilities?keys[]=x&keys[]=y&keys[]=z
+        GET/organizations/amherst/capabilities?keys[]=advanced_search&keys[]=advanced_search_url&keys[]=does­not­exist
 
 Response
         [

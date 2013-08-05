@@ -11,28 +11,33 @@
     <div class="span10 offset1">
 
       <%= form_for(@user, :html => { :method => :put }) do |f| %>
+
       <form class="form-horizontal well">
         <fieldset>
+
           <div class="control-group">
             <label><%= f.label :email, {class:"control-label"} %> </label>
             <div class="controls">
               <%= f.email_field :email, {class:"input-xlarge"} %>
             </div>
           </div>
+
           <div class="control-group">
             <label><%= f.label :admin, {class:"control-label"} %> </label>
             <div class="controls">
               <%= f.check_box :admin, {class:"checkbox"} %>
               <label>
-                Check box to enable admin functionality
+                Check to enable admin functionality
               </label>
             </div>
           </div>
+
           <div class="form-actions">
             <%= f.submit nil, :class => 'btn btn-primary' %>
             <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 users_path, :class => 'btn' %>
           </div>
+
         </fieldset>
       </form>
     </div>

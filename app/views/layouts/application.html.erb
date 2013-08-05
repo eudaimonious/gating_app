@@ -28,7 +28,11 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </a>
-       <%= link_to 'Gating App', organizations_path, :class => "brand" %>
+       <% if current_user && ! current_user.admin %>
+        <%= link_to current_user.organization.full_name, organizations_path, :class => "brand" %>
+       <% else %>
+        <%= link_to 'Gating App', organizations_path, :class => "brand" %>
+      <% end %>
        <div class="nav-collapse collapse" id="main-menu">
         <ul class="nav" id="main-menu-left">
         	<% if current_user %>
@@ -63,7 +67,6 @@
   <div class="row">
     <div class="span12">
       <div class="alert alert-error">
-        <a class="close">×</a>
         <%= alert %>
       </div>
     </div>
@@ -74,7 +77,6 @@
   <div class="row"
     <div class="span12">
       <div class="alert alert-success">
-        <a class="close">×</a>
         <%= notice %>
       </div>
     </div>
