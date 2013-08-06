@@ -1,4 +1,10 @@
 GatingApp::Application.routes.draw do
+
+    #Root must be at the top!
+  root to: "organizations#index"
+  
+  ActiveAdmin.routes(self)
+
   resources :organizations
 
 
@@ -56,7 +62,8 @@ GatingApp::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root to: "organizations#index"
+  
+
 
 
   # See how all your routes lay out with "rake routes"
