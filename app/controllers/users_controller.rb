@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
+	#Ensures that only admins can promote someone to an admin (see App Controller)
 	before_filter :require_admin_user!
-	before_filter :remove_admin_from_org, :only => [:edit, :update]
+
+	#This isn't working before_filter :remove_admin_from_org, :only => [:edit, :update]
 
 
 	def index
@@ -13,6 +15,8 @@ class UsersController < ApplicationController
 		end
 	end
 
+	#This is really just for promoting users to admins. Users edit their profiles
+	#and view their API key via the Devise Controller
 	def edit
 		@user = User.find(params[:id])
 	end
@@ -33,6 +37,8 @@ class UsersController < ApplicationController
     	end
   	end
 
+  	"""
+  	This isn't working
   	private
   	helper_method :remove_admin_from_org
 	def remove_admin_from_org
@@ -40,5 +46,5 @@ class UsersController < ApplicationController
 			current_user.organization_id = nil
 		end
 	end
-
+	"""
 end
