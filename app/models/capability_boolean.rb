@@ -1,0 +1,2 @@
+class CapabilityBoolean < Capability
+end

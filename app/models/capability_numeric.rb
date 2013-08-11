@@ -1,0 +1,2 @@
+class CapabilityNumeric < Capability
+end
