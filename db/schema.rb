@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130811210908) do
+ActiveRecord::Schema.define(:version => 20130811231403) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -31,14 +31,10 @@ ActiveRecord::Schema.define(:version => 20130811210908) do
   create_table "capabilities", :force => true do |t|
     t.string   "name"
     t.string   "key"
-    t.datetime "expiry_date"
-    t.boolean  "default_val_bool"
-    t.string   "default_val_str"
-    t.integer  "default_val_num"
-    t.string   "val_type"
     t.integer  "user_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.date     "expiry_date"
   end
 
   add_index "capabilities", ["user_id"], :name => "index_capabilities_on_user_id"
@@ -49,6 +45,13 @@ ActiveRecord::Schema.define(:version => 20130811210908) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "organizations_capabilities", :id => false, :force => true do |t|
+    t.integer "organization_id", :null => false
+    t.integer "capability_id",   :null => false
+  end
+
+  add_index "organizations_capabilities", ["organization_id", "capability_id"], :name => "organization_capability_index", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
