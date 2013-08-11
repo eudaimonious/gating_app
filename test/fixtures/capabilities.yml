@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  key: MyString
+  expiry_date: 2013-08-11 17:09:08
+  default_val_bool: false
+  default_val_str: MyString
+  default_val_num: 1
+  val_type: MyString
+  user: 
+
+two:
+  name: MyString
+  key: MyString
+  expiry_date: 2013-08-11 17:09:08
+  default_val_bool: false
+  default_val_str: MyString
+  default_val_num: 1
+  val_type: MyString
+  user: 

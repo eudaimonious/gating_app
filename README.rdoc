@@ -16,14 +16,14 @@ The Gating API is an isolated service that enables any of our applications to ch
 == Capability Management
 
 * All Capabilities have:
-  * A key (i.e. “advanced_search”)
-  * A default value (i.e. false)
-  * A type of Boolean, Numeric or String
-  * A User who is the Owner
+  * (COMPLETE) A key (i.e. “advanced_search”)
+  * (COMPLETE) A default value (i.e. false)
+  * (COMPLETE) A type of Boolean, Numeric or String
+  * (PARTIAL - Field exists, need to set based on logged in user) A User who is the Owner
 * All Capabilities may have:
-  * An expiration date
-  * A note (i.e. “When enabled, allow access to the new search API”)
-* Admins are able to CRUD Capabilities
+  * (PARTIAL - Change from datetime to date) An expiration date
+  * (PARTIAL - Explain to users that notes can be added after capability is created.) A note (i.e. “When enabled, allow access to the new search API”)
+* (COMPLETE) Admins are able to CRUD Capabilities
 
 
 == Capability Expiration Notification
@@ -36,7 +36,7 @@ The Gating API is an isolated service that enables any of our applications to ch
   * (COMPLETE) A full name (i.e. “Amherst College”)
   * (COMPLETE) A slug (i.e. “amherst”)
 * (PARTIAL - Need organization to reset when a user is promoted to Admin. Try adding org to the promotion form. You could change the value via the template. Also check whether adding to the form make the helper method in the controller work. Is it possible to do this in the models? What's best practice?) Users are a part of an Organization; Admins are not a part of any Organization
-* Admins are able to create new Organizations
+* (COMPLETE) Admins are able to create new Organizations
 * An Organization can have zero or more Capabilities assigned to it
 * An Admin can assign Capabilities to an Organization
 * Users are able to view all the Capabilities assigned to only their Organization
