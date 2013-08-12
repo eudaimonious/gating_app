@@ -8,4 +8,8 @@ class OrganizationsController < ApplicationController
 		end
 	end
 
+	def edit
+		@organization.organizations_capabilities.build.build_capability
+	end
+
 end

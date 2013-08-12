@@ -19,7 +19,7 @@ The Gating API is an isolated service that enables any of our applications to ch
   * (COMPLETE) A key (i.e. “advanced_search”)
   * A default value (i.e. false)
   * A type of Boolean, Numeric or String
-  * (PARTIAL - Field exists, need to set based on logged in user) A User who is the Owner
+  * (COMPLETE) A User who is the Owner
 * All Capabilities may have:
   * (COMPLETE) An expiration date
   * (PARTIAL - Explain to users that notes can be added after capability is created.) A note (i.e. “When enabled, allow access to the new search API”)
@@ -37,8 +37,8 @@ The Gating API is an isolated service that enables any of our applications to ch
   * (COMPLETE) A slug (i.e. “amherst”)
 * (PARTIAL - Need organization to reset when a user is promoted to Admin. Try adding org to the promotion form. You could change the value via the template. Also check whether adding to the form make the helper method in the controller work. Is it possible to do this in the models? What's best practice?) Users are a part of an Organization; Admins are not a part of any Organization
 * (COMPLETE) Admins are able to create new Organizations
-* An Organization can have zero or more Capabilities assigned to it
-* An Admin can assign Capabilities to an Organization
+* (COMPLETE)An Organization can have zero or more Capabilities assigned to it
+* (PROBLEMATIC - Check out the parameters the update form is sending through.)An Admin can assign Capabilities to an Organization
 * Users are able to view all the Capabilities assigned to only their Organization
 
 == Gating API
