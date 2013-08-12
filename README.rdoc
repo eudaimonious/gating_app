@@ -17,11 +17,11 @@ The Gating API is an isolated service that enables any of our applications to ch
 
 * All Capabilities have:
   * (COMPLETE) A key (i.e. “advanced_search”)
-  * (COMPLETE) A default value (i.e. false)
-  * (COMPLETE) A type of Boolean, Numeric or String
+  * A default value (i.e. false)
+  * A type of Boolean, Numeric or String
   * (PARTIAL - Field exists, need to set based on logged in user) A User who is the Owner
 * All Capabilities may have:
-  * (PARTIAL - Change from datetime to date) An expiration date
+  * (COMPLETE) An expiration date
   * (PARTIAL - Explain to users that notes can be added after capability is created.) A note (i.e. “When enabled, allow access to the new search API”)
 * (COMPLETE) Admins are able to CRUD Capabilities
 
