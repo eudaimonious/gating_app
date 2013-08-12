@@ -9,6 +9,10 @@ GatingApp::Application.routes.draw do
 
   resources :organizations
 
+  resources :organizations do
+    resources :capabilities, :only => [:index]
+  end
+
 
   devise_for :users
 
