@@ -2,6 +2,8 @@ GatingApp::Application.routes.draw do
 
     #Root must be at the top!
   root to: "organizations#index"
+
+  resources :capabilities, :only => [:index]
   
   ActiveAdmin.routes(self)
 

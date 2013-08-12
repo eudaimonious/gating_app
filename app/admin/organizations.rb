@@ -10,7 +10,7 @@ ActiveAdmin.register Organization do
 				if !join_f.object.nil?
 					#show the destroy checkbox if it is an assigned capability
 					#else, there's already dynamic JS to add / remove new capabilities
-					join_f.input :_destroy, :as => :boolean, :label => "Remove?"
+				join_f.input :_destroy, :as => :boolean, :label => "Remove?"
 				end
 
 				join_f.input :capability #should automatically generate a drop-down select box

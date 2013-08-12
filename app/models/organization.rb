@@ -1,5 +1,5 @@
 class Organization < ActiveRecord::Base
-  attr_accessible :full_name, :slug, :users, :capabilities_attributes, :organizations_capabilities_attributes
+  attr_accessible :id, :full_name, :slug, :users, :capabilities_attributes, :organizations_capabilities_attributes
   has_many :organizations_capabilities
   has_many :capabilities, :through => :organizations_capabilities
   accepts_nested_attributes_for :capabilities
