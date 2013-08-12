@@ -3,6 +3,14 @@ class ApplicationController < ActionController::Base
 
     private
 
+    def after_sign_in_path_for(resource)
+    	if current_user.admin
+  			admin_root_path
+  		else
+  			root_path
+  		end
+	end
+
     #Ensures that only admins can promote someone to an admin (see Users Controller)
   	def require_admin_user!
     	unless current_user && current_user.admin
