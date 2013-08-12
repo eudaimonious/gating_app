@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130812164919) do
+ActiveRecord::Schema.define(:version => 20130812194024) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -32,12 +32,32 @@ ActiveRecord::Schema.define(:version => 20130812164919) do
     t.string   "name"
     t.string   "key"
     t.integer  "user_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
     t.date     "expiry_date"
+    t.integer  "capability_type_id"
+    t.string   "capability_type_type"
   end
 
   add_index "capabilities", ["user_id"], :name => "index_capabilities_on_user_id"
+
+  create_table "capability_type_bools", :force => true do |t|
+    t.boolean  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "capability_type_nums", :force => true do |t|
+    t.integer  "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "capability_type_strs", :force => true do |t|
+    t.string   "value"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "organizations", :force => true do |t|
     t.string   "full_name"
