@@ -1,2 +1,0 @@
-class CapabilityBoolean < Capability
-end

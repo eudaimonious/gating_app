@@ -1,2 +1,0 @@
-class CapabilityString < Capability
-end
