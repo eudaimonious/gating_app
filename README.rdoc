@@ -17,8 +17,8 @@ There are no expiry notifications.
 
 The third API endpoint is missing. The JSON returned by the first two API endpoints is not organization-specific. The JSON does not return capability values.
 
-Features
-========
+= Features
+
 
 == (COMPLETE) User Management 
 
