@@ -1,20 +1,22 @@
 GatingApp::Application.routes.draw do
 
-    #Root must be at the top!
+  #Root must be at the top!
   root to: "organizations#index"
 
   resources :capabilities, :only => [:index]
-  
-  ActiveAdmin.routes(self)
 
-  resources :organizations
+  get '/organizations/:slug/capabilities', to: 'capabilities#index'
+  get '/organizations/:slug/capabilities/:key', to: 'capabilities#show'
 
-  resources :organizations do
-    resources :capabilities, :only => [:index]
-  end
+    ActiveAdmin.routes(self)
 
+      resources :organizations
 
-  devise_for :users
+      resources :organizations do
+        resources :capabilities, :only => [:index]
+      end
+
+      devise_for :users
 
 
 

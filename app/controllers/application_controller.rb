@@ -11,12 +11,9 @@ class ApplicationController < ActionController::Base
   		end
 	end
 
-    #Ensures that only admins can promote someone to an admin (see Users Controller)
-  	def require_admin_user!
-    	unless current_user && current_user.admin
-      		render :json => "unauthorized user", :status => :unauthorized
-    	end
-	end
+    #Implement this to ensure a json response for unauthorized users
+    #render :json => "unauthorized user", :status => :unauthorized
+
 
 	#The next 2 methods will be called in the Active Admin Initializer
 	def authenticate_admin_user!

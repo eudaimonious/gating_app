@@ -13,17 +13,24 @@ The Gating API is an isolated service that enables any of our applications to ch
 * (COMPLETE) Admins are able to assign / unassign roles to other users
 * (COMPLETE) All users view their personal API key
 
+Note: Non-admins can view their personal API key by clicking Account Details.
+Note: On Heroku, you can log in as an admin with username: user1@gmail.com and password: password.
+
+
 == Capability Management
 
 * All Capabilities have:
   * (COMPLETE) A key (i.e. “advanced_search”)
   * A default value (i.e. false)
-  * A type of Boolean, Numeric or String
+  * (COMPLETE) A type of Boolean, Numeric or String
   * (COMPLETE) A User who is the Owner
-* All Capabilities may have:
+* (COMPLETE) All Capabilities may have:
   * (COMPLETE) An expiration date
-  * (PARTIAL - Explain to users that notes can be added after capability is created.) A note (i.e. “When enabled, allow access to the new search API”)
+  * (COMPLETE) A note (i.e. “When enabled, allow access to the new search API”)
 * (COMPLETE) Admins are able to CRUD Capabilities
+
+Note: Capabilities can have a a default value but this is not working in the GUI.
+Note: Click View on a Capability to add a note.
 
 
 == Capability Expiration Notification
@@ -35,15 +42,18 @@ The Gating API is an isolated service that enables any of our applications to ch
 * (COMPLETE) All Organizations have:
   * (COMPLETE) A full name (i.e. “Amherst College”)
   * (COMPLETE) A slug (i.e. “amherst”)
-* (PARTIAL - Need organization to reset when a user is promoted to Admin. Try adding org to the promotion form. You could change the value via the template. Also check whether adding to the form make the helper method in the controller work. Is it possible to do this in the models? What's best practice?) Users are a part of an Organization; Admins are not a part of any Organization
+* Users are a part of an Organization; Admins are not a part of any Organization
 * (COMPLETE) Admins are able to create new Organizations
 * (COMPLETE)An Organization can have zero or more Capabilities assigned to it
 * (COMPLETE)An Admin can assign Capabilities to an Organization
 * Users are able to view all the Capabilities assigned to only their Organization
 
+Note: Need organization to reset when a user is promoted to Admin. Try adding org to the promotion form. You could change the value via the template. Also check whether adding to the form make the helper method in the controller work. Is it possible to do this in the models? What's best practice?
+
+
 == Gating API
 
-The Gating API will be called by applications in order to determine which capabilities to expose to the end user. All responses will have a proper HTTP status code and the body (if any) will be in
+The Gating API will be called by applications in order to determine which capabilities to expose to the end user. All responses will have a proper HTTP status code and the body (if any) will be in JSON.
 
 * Get Capabilities for an Organization
 This endpoint returns the entire list of Capabilities, any that are assigned to the Organization should have the set value, all others should have the default value.
