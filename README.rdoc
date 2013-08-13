@@ -1,7 +1,24 @@
 == Objective
 
-The Gating API is an isolated service that enables any of our applications to check what capabilities should be enabled or disabled for a given application. This allows us to activate capabilities for clients individually, do limited rollouts of new capabilities, and charge clients for selected capabilities. You can visit the app at link:gating.herokuapp.com.
+The Gating API is an isolated service that enables any of our applications to check what capabilities should be enabled or disabled for a given application. This allows us to activate capabilities for clients individually, do limited rollouts of new capabilities, and charge clients for selected capabilities. 
 
+== Usage 
+You can visit the app at link:gating.herokuapp.com. You can also clone the app and use the seed data provided to get up and running. You can log in as an admin online or on your local with username: user1@gmail.com and password: password
+
+== At a high level, what's complete?
+
+The Admin interfaces for CRUDing Users, Capabilities and Organizations. The ability to assign Capabilities to Organizations. Tables for storing capability values.
+
+== At a high level, what's still missing?
+
+There is no GUI for setting the default value of a capability. There are no organization-specific values for a capability. 
+
+There are no expiry notifications.
+
+The third API endpoint is missing. The JSON returned by the first two API endpoints is not organization-specific. The JSON does not return capability values.
+
+Features
+========
 
 == (COMPLETE) User Management 
 
@@ -14,7 +31,7 @@ The Gating API is an isolated service that enables any of our applications to ch
 * (COMPLETE) All users view their personal API key
 
 Note: Non-admins can view their personal API key by clicking Account Details.
-Note: On Heroku, you can log in as an admin with username: user1@gmail.com and password: password.
+Note: On Heroku, you can log in as an admin with username: user1@gmail.com and password: password. This can work on your local too, just run rake db:seed.
 
 
 == Capability Management

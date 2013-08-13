@@ -9,4 +9,9 @@ class CapabilitiesController < ApplicationController
 			format.json { render :json => @capabilities }
 		end
 	end
+
+	def show
+		@capability = Capability.find_by_key(params[:key])
+		render :json => @capability
+	end
 end
