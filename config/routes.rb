@@ -5,8 +5,8 @@ GatingApp::Application.routes.draw do
 
   resources :capabilities, :only => [:index]
 
-  get '/organizations/:slug/capabilities', to: 'capabilities#index'
-  get '/organizations/:slug/capabilities/:key', to: 'capabilities#show'
+  get '/organizations/:slug/capabilities', to: 'capabilities#index', defaults: {format: :json}
+  get '/organizations/:slug/capabilities/:key', to: 'capabilities#show', defaults: {format: :json}
 
     ActiveAdmin.routes(self)
 
