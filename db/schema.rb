@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130812194024) do
+ActiveRecord::Schema.define(:version => 20130815205434) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(:version => 20130812194024) do
   end
 
   add_index "capabilities", ["user_id"], :name => "index_capabilities_on_user_id"
+
+  create_table "capability_settings", :force => true do |t|
+    t.integer  "capability_id"
+    t.integer  "setting_id"
+    t.string   "setting_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "capability_settings", ["capability_id", "setting_id", "setting_type"], :name => "setting_index"
 
   create_table "capability_type_bools", :force => true do |t|
     t.boolean  "value"
