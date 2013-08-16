@@ -1,4 +1,5 @@
 ActiveAdmin.register Capability do
+config.filters = false
 
 	form do |f|
 		f.inputs "Capability" do
@@ -9,13 +10,14 @@ ActiveAdmin.register Capability do
 					:label => "Capability Owner"
 			f.input :key, :label => "Key, for API access"
 			#Select the value type
-			f.input :capability_type_type, :as => :select, 
-					:collection => options_for_select([['Numeric', 'CapabilityTypeNum'], ['Text', 'CapabilityTypeStr'], ['Boolean', 'CapabilityTypeBool']]), 
-					:label => "Capability Setting Type"
+
 			f.input :expiry_date, :label => "Optional expiry date"
 		end
-		f.fields_for :capability_types do |ct|
-				ct.inputs # :value, :label => "Enter Setting Value (Integers Only)"
+
+		f.fields_for :capability_setting do |s|
+						s.input :setting_type,
+					:collection => options_for_select([['Numeric', 'Setnumeric'], ['Text', 'Setstring'], ['Boolean', 'Setboolean']]), 
+					:label => "Capability Setting Type"
 		end
 
 

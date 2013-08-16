@@ -20,50 +20,58 @@ user = User.find_or_create_by_email(
 	admin: false,
 	organization_id: 1)
 
-#Create a boolean capability
-boolcap = Capability.find_or_create_by_name(
+#Create a search capability
+search = Capability.find_or_create_by_name(
 	name: "Advanced Search",
 	key: "advanced_search",
-	user_id: 1,
-	expiry_date: "2013-10-15",
-	capability_type_type: "CapabilityTypeBool")
+	expiry_date: "2013-10-15")
+
+#Assign owner to search capability
+unless admin.capabilities.include? search
+	admin.capabilities << search
+	admin.save
+end
+
+#Assign default value to search capability
+search.setting = Setboolean.find_or_create_by_value(:value => false)
+search.save
 
 #Create The U!
 umiami = Organization.find_or_create_by_slug(
 	full_name: "University of Miami",
 	slug: "umiami")
 
-#Assign boolean capability to The U!
-unless umiami.capabilities.include? boolcap
-	umiami.capabilities << boolcap
+#Assign search capability to The U!
+unless umiami.capabilities.include? search
+	umiami.capabilities << search
 	umiami.save
 end
 
-#Assign default value to boolean capability
-boolcap.capability_types = CapabilityTypeBool.find_or_create_by_value(:value => false)
-boolcap.capability_type_id = boolcap.capability_types_id
-boolcap.save
-
-#Create a numeric capability
-numcap = Capability.find_or_create_by_name(
+#Create a messaging capability
+messaging = Capability.find_or_create_by_name(
 	name: "Messaging",
 	key: "messaging",
-	user_id: 1,
-	expiry_date: "2013-10-30",
-	capability_type_type: "CapabilityTypeNum")
+	expiry_date: "2013-10-30")
+
+#Assign owner to messaging capability
+unless admin.capabilities.include? messaging
+	admin.capabilities << messaging
+	admin.save
+end
+
+
+#Assign default value to messaging capability
+messaging.setting = Setnumeric.find_or_create_by_value(:value => 5000)
+messaging.save
+
 
 #Create MIT
 mit = Organization.find_or_create_by_slug(
 	full_name: "Massachusetts Institute of Technology",
 	slug: "mit")
 
-#Assign numeric capability to MIT
-unless mit.capabilities.include? numcap
-	mit.capabilities << numcap
+#Assign messaging capability to MIT
+unless mit.capabilities.include? messaging
+	mit.capabilities << messaging
 	mit.save
 end
-
-#Assign default value to numeric capability
-numcap.capability_types = CapabilityTypeNum.find_or_create_by_value(:value => 5000)
-numcap.capability_type_id = numcap.capability_types_id
-numcap.save
